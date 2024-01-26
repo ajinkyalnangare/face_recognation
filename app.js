@@ -8,12 +8,14 @@ const { Canvas, Image } = require("canvas");
 const canvas = require("canvas");
 const fileUpload = require("express-fileupload");
 faceapi.env.monkeyPatch({ Canvas, Image });
+const cors=require('cors')
 
 const app = express();
-
+app.use(cors())
 app.use(
   fileUpload({useTempFiles: true})
 );
+
 
 
 // add your mongo key instead of the ***
