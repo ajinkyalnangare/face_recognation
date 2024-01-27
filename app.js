@@ -128,7 +128,7 @@ mongoose.connect(
     let result = await getDescriptorsFromDB(File1);
     res.json({ result });
     } catch (error) {
-      res.json({error:error})
+      res.json({error:error.message})
     }
 
     
