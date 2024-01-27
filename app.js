@@ -123,10 +123,15 @@ mongoose.connect(
     return results;
   }
   app.post("/check-face", async (req, res) => {
-
-    const File1 = req.files.File1.tempFilePath;
+    try {
+      const File1 = req.files.File1.tempFilePath;
     let result = await getDescriptorsFromDB(File1);
     res.json({ result });
+    } catch (error) {
+      res.json({error})
+    }
+
+    
   
   });
   
